@@ -1,0 +1,23 @@
+.fourbyfour{
+    cursor: pointer;
+    text-align: center;
+    background-color: #eee;
+    color:black
+}
+button{
+    size: 50px;
+}
+#mathInput{
+    margin: 0px 0px 20px 0px;
+}
+div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    
+    /* margin-right: 590px;
+    size: 250px; */
+    /* justify-items: stretch;
+    align-items: initial; */
+}
