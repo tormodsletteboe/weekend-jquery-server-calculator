@@ -7,12 +7,17 @@
 button{
     size: 50px;
 }
+#clearBtn{
+    /* height:100px ; */
+    width:57px ;
+}
 #mathInput{
     margin: 0px 0px 20px 0px;
 }
 div{
+   
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 50px 50px 50px 50px;
     grid-column-gap: 2px;
     grid-row-gap: 2px;
     
