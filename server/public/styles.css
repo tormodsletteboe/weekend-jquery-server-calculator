@@ -1,4 +1,4 @@
-.fourbyfour{
+.fourbyfour,#equalBtn,#clearBtn{
     cursor: pointer;
     text-align: center;
     background-color: #eee;
