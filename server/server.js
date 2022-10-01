@@ -8,15 +8,23 @@ app.use(bodyparser.urlencoded({extended:true}));
 let stateOfMathEqs=[];
 
 app.post('/mathEqns',(req,res)=>{
-    stateOfMathEqs.push(req.body);
+    let myObj ={};
+    myObj = req.body;
+    myObj.result = CalculateResult(myObj.matheqnstring);
+    stateOfMathEqs.push(myObj);
     console.log('stateOfMathEqs',stateOfMathEqs);
     res.sendStatus('201');
 });
 app.get('/mathEqns/Result',(req,res)=>{
     //calculate result
-    let calcResult = CalculateResult(req.body);
+    //console.log(req.query);
+    
+    //let calcResult = CalculateResult(req.query.matheqnstring);
+    //stateOfMathEqs.push(req.query.matheqnstring);
+    //console.log('calcResult',calcResult);
+    //console.log('statofMatheqn',stateOfMathEqs);
     //TODO this is where I am, try to make calc work, havnt tested it yet
-    res.send(calcResult)
+    res.send(stateOfMathEqs);
 });
 
 app.listen(3000,()=>{
@@ -25,22 +33,25 @@ app.listen(3000,()=>{
  
 function CalculateResult(stringOfmath){
     let numOpNumArray = [];
-    numOpNumArray=stringOfmath.split('/\+\-\*\//');
-    onsole.log('just tried to split',numOpNumArray);
-    if(numOpNumArray[1]=='+'){
+    let regExp = /\+|\-|\/|\*/;
+    numOpNumArray=stringOfmath.split(regExp);
+    let Operator = stringOfmath.match(regExp);
+    // console.log('type of op',Operator);
+    // console.log('just tried to split',numOpNumArray);
+    if(Operator[0]=='+'){
         //do addition
-        return Number(numOpNumArray[0]) + Number(numOpNumArray[2]);
+        return Number(numOpNumArray[0]) + Number(numOpNumArray[1]);
     }
-    else if(numOpNumArray[1]=='-'){
+    else if(Operator[0]=='-'){
         //do minus
-        return Number(numOpNumArray[0]) - Number(numOpNumArray[2]);
+        return Number(numOpNumArray[0]) - Number(numOpNumArray[1]);
     }
-    else if(numOpNumArray[1]=='*'){
+    else if(Operator[0]=='*'){
         //do mult
-        return Number(numOpNumArray[0]) * Number(numOpNumArray[2]);
+        return Number(numOpNumArray[0]) * Number(numOpNumArray[1]);
     }
     else{
         //do division
-        return Number(numOpNumArray[0]) / Number(numOpNumArray[2]);
+        return Number(numOpNumArray[0]) / Number(numOpNumArray[1]);
     }
 }
