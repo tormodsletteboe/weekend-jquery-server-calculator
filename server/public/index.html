@@ -15,7 +15,8 @@
 
     <h2>Server Side Calculator</h2>
     <form id="calcForm">
-        <input id="mathInput" type="text" />
+        <input id="mathInput" type="text" required pattern=/^(\b0\.0*)*?[1-9]\d*(\.\d+)?[\+\*\/\-](\b0\.0*)*?[1-9]\d*(\.\d+)?$//>
+        <!-- <label id="errorLabel">Please use the following input pattern [number][operator][number]</label> -->
         <button id="clearBtn">C</button>
         <div>
             <button class="fourbyfour" id="sevenBtn">7</button>
@@ -41,4 +42,5 @@
 
     </ul>
 </body>
+
 </html>

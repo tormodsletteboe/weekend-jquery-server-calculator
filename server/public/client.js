@@ -9,28 +9,78 @@ let clientResultsAndEqns=[];
 
 function onReady(){
     //console.log('onReady');
+    $("input").focusout(function(e) { 
+        if(regexp.test($(this).val())==false) { 
+            $(this).css('border', 'solid 2px red'); 
+            e.target.setCustomValidity('');
+            if(!e.target.validity.valid){
+                e.target.setCustomValidity("Input [number][operator][number]");
+            }
+        }
+        else {
+              
+            // If it is not blank.
+            $(this).css('border', 'solid 2px green'); 
+            e.target.setCustomValidity('');   
+        }    
+    }) .trigger("focusout");
+    
 //eventhandlers
     $('#calcForm').on('submit',onEqualBtn);
     $('.fourbyfour').on('click',on4by4Click);
     $('#clearBtn').on('click',onClearBtn);
-    render();
-    renderResult();
+    runthisOnload();
 }
-
+function runthisOnload(){
+    var elements = document.getElementsByTagName('#mathInput');
+    
+        elements.oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("sdfasdfasdfasd");
+            }
+        };
+        elements.oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    
+}
 function on4by4Click(evt){
     evt.preventDefault();
     //console.log('on4by4Click');
     mathInputString+=$(this).text();
     render();
 }
+function testOfString(stringToTest){
+    
+    console.log(stringToTest);
+    let doesItfollowThisPattern = regexp.test(stringToTest);
+    console.log(doesItfollowThisPattern);
+    if(doesItfollowThisPattern){
+        return true;
+    }
+    return false;
+}
 function onClearBtn(evt){
     evt.preventDefault();
     //console.log('in onClearBtn');
     mathInputString='';
     $('#mathInput').val('');
+    $('#errorLabel').text('');
+
 }
 function onEqualBtn(evt){
     evt.preventDefault();
+    mathInputString=$('#mathInput').val();
+    //test input before anything else is allowed to happen
+    let testThisString = mathInputString;
+    console.log('in onEqualBtn what is testStrng',testThisString);
+    if(testOfString(testThisString)===false){
+        //$('#errorLabel').text('Please input a number then an operator then another number. Do not input numbers starting with . or use e as exponent')
+        return;
+    }
+
+
     //console.log('in onEqualBtn');
     let matheqn = {
         matheqnstring: mathInputString
