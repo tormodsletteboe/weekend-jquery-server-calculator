@@ -1,5 +1,5 @@
 
-console.log('in client.js');
+//console.log('in client.js');
 let regexp = /^(\b0\.0*)*?[1-9]\d*(\.\d+)?[\+\*\/\-](\b0\.0*)*?[1-9]\d*(\.\d+)?$/;
 
 $(document).ready(onReady);
@@ -8,12 +8,13 @@ let mathInputString='';
 let clientResultsAndEqns=[];
 
 function onReady(){
-    console.log('onReady');
+    //console.log('onReady');
 //eventhandlers
     $('#calcForm').on('submit',onEqualBtn);
     $('.fourbyfour').on('click',on4by4Click);
     $('#clearBtn').on('click',onClearBtn);
-    
+    render();
+    renderResult();
 }
 
 function on4by4Click(evt){
@@ -24,17 +25,17 @@ function on4by4Click(evt){
 }
 function onClearBtn(evt){
     evt.preventDefault();
-    console.log('in onClearBtn');
+    //console.log('in onClearBtn');
     mathInputString='';
     $('#mathInput').val('');
 }
 function onEqualBtn(evt){
     evt.preventDefault();
-    console.log('in onEqualBtn');
+    //console.log('in onEqualBtn');
     let matheqn = {
         matheqnstring: mathInputString
     };
-    console.log('mathstring',matheqn.matheqnstring);
+    //console.log('mathstring',matheqn.matheqnstring);
     //send the equation to the server
     $.ajax({
         url:'/mathEqns',
@@ -42,9 +43,9 @@ function onEqualBtn(evt){
         data: matheqn
     })
     .then((response)=>{
-        console.log('in /mathEqns GET',response);
+        //console.log('in /mathEqns GET',response);
         if(response === 'Created'){
-            console.log('Created worked');
+            //console.log('Created worked');
         }
     })
     .catch((err)=>{
@@ -56,7 +57,7 @@ function onEqualBtn(evt){
         method: 'GET'
     })
     .then((response)=>{
-        console.log('response is',response);
+        //console.log('response is',response);
         clientResultsAndEqns = response;
         renderResult();
     })

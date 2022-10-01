@@ -1,4 +1,4 @@
-console.log('in server.js');
+//console.log('in server.js');
 const express = require('express');
 const bodyparser = require('body-parser');
 
@@ -13,7 +13,7 @@ app.post('/mathEqns',(req,res)=>{
     myObj = req.body;
     myObj.result = CalculateResult(myObj.matheqnstring);
     stateOfMathEqs.push(myObj);
-    console.log('stateOfMathEqs',stateOfMathEqs);
+    //console.log('stateOfMathEqs',stateOfMathEqs);
     res.sendStatus('201');
 });
 app.get('/mathEqns/Result',(req,res)=>{

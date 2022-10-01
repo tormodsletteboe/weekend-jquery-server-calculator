@@ -49,7 +49,7 @@ Link to software that is required to develop this website.
 7. Make sure 'express' and 'body-parser' is installed. To do so in your terminal run 'npm install'. Npm will look at your dependecies and install needed libraries. If this does not work try 'npm install express' and npm install body-parser'.
 8. To start the server run 'node server/server.js' in termial, or if 'npm init -y' was run, the user can add a start command in the script part of the package.json" 
 9. To start server run 'npm start' or 'node server/server.js'
-10. If it started, terminal will display 'Server is up on Port:3000'
+10. If it started, terminal will display 'server is up on port 3000'
 11. Open a web-browser and go to 'localhost:3000'
 12. You can now enjoy doing calculations likd a pro from "anywhere" in the world'.
 
