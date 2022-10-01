@@ -44,8 +44,8 @@ Link to software that is required to develop this website.
 4. In your terminal navigate to a folder you want to clone into.
 5. Run `git clone [ssh address]` in your terminal
 6. cd into the cloned folder and run `code .` in your terminal to open the project in vscode.
-7. make sure express and body-parser is installed. To do so in your terminal run 'npm install'. Npm will look at your dependecies and install needed libraries.
-. Run open index.html in termial to see and use the website.
+7. Make sure express and body-parser is installed. To do so in your terminal run 'npm install'. Npm will look at your dependecies and install needed libraries. If this does not work try 'npm install express' and npm install body-parser'.
+8. To start the server run 'node server/server.js' in termial, or if npm init -y was run, the user can add a start in the script
 
 ## Usage
 
