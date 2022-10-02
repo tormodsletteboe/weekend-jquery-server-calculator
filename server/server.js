@@ -38,12 +38,12 @@ app.listen(3000,()=>{
 });
 
 //app.delete
-//
-app.delete('/mathEqns/Delete',(req,res=>{
-    console.log('in delete mathEqns/Delete');
+//handles delete request from client, set state to empty arrray, then return that empty array
+app.delete('/mathEqns/Delete',(req,res)=>{
     stateOfMathEqs=[];
-    res.send('Deleted History');
-}));
+    //return current state
+    res.send(stateOfMathEqs);
+});
  
 //CalculateResult
 //split the equation string into 2 number based on which operator was used. Do calculation based on which operator was used, return result

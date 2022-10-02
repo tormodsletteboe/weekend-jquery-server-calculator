@@ -27,16 +27,17 @@ function updateMathString(){
 }
 
 // onClearHistory
-// TODO: for stretch goals
+// Send a DELETE message to server, server set statearray =[]
+// the response is the empty statearray
 function onClearHistory(){
     $.ajax({
         url: '/mathEqns/Delete',
         method: 'DELETE'
     })
     .then((response)=>{
-        console.log('in ajax delete',response);
-        //temporary, would rather do a GET or do something with response
-        clientResultsAndEqns=[];
+        //console.log('in ajax delete',response);
+        //update local array
+        clientResultsAndEqns=response;
         renderResult();
     })
     .catch((err)=>{
