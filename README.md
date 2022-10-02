@@ -11,8 +11,8 @@
 
 _Duration: 2 Day Sprint_
 
-Server Side Calculator helps the user do simple math from anywhere in the world. Users can do addition, subtraction, multiplication and division. Simply use your keyboard or the provided user interface to enter 2 numbers (can be decimal, at the current state of the program it's not possible to start a number with . ie .45 would need to be 0.45) and 1 operator ONLY. So input format would be [number][operator][number], ie 5.6+7.99. The user will then have to click the [=] button to get the result. The result will be displayed below the numeric buttons, and a list of previous calculations will be appended as more calculations are performed. The most recent calculation equation will be appended to the bottom of the list.
-The input box can be cleared of its content by clicking the [C] button.
+Server Side Calculator helps the user do simple math from anywhere in the world. Users can do addition, subtraction, multiplication and division. Simply use the keyboard or the provided user interface to enter 2 numbers (can be decimal, at the current state of the program it's not possible to start a number with . ie .45 would need to be 0.45) and 1 operator ONLY. So input format would be [number][operator][number], ie 5.6+7.99. The user will then have to click the [=] button to get the result. The result will be displayed below the numeric buttons, and a list of previous calculations will be appended as more calculations are performed. The most recent calculation equation will be appended to the bottom of the list.
+The input box can be cleared of its content by clicking the [C] button. The list of previous calulations can be cleared by clicking [Clear History]. The user can also re calculate a previous calculation by clicking on one of the list items. That equation will be displayed in the input and the result of that calculation will also be displayed.
 
 
 ## Screen Shot
@@ -60,7 +60,10 @@ Link to software that is required to develop this website.
 2. Click the = button, to see the result.
 3. The most recent calculation will be appended to a list of previous calculations.
 4. User can click the [C] button at any time to clear the user interface inputs.
-5. Clear does not clear/empty the list of previous calculations.
+5. Clear does not clear/empty the list of previous 
+calculations.
+6. To clear the history, click [Clear History]
+7. User can also have a previous calculation re-calculated by cliking on it in the list of previoius calculations.
 
 
 
