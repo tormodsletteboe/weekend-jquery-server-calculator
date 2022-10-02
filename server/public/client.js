@@ -8,43 +8,46 @@ let mathInputString='';
 let clientResultsAndEqns=[];
 
 function onReady(){
-    //console.log('onReady');
-    $("input").focusout(function(e) { 
-        if(regexp.test($(this).val())==false) { 
-            //$(this).css('border', 'solid 2px red'); 
-            e.target.setCustomValidity('');
-            if(!e.target.validity.valid){
-                e.target.setCustomValidity("Examples:8+2 or 5.6/4.7 or 0.1-1 or 3*5.2");
-            }
-        }
-        else {
-              
-            // If it is not blank.
-            //$(this).css('border', 'solid 2px green'); 
-            e.target.setCustomValidity('');   
-        }    
-    }) .trigger("focusout");
+    
+   //https://stackoverflow.com/questions/5272433/html5-form-required-attribute-set-custom-validation-message
+    // $("input").focusout(function(e) { 
+    //     if(regexp.test($(this).val())==false) { 
+    //         //$(this).css('border', 'solid 2px red'); 
+    //         e.target.setCustomValidity('');
+    //         if(!e.target.validity.valid){
+    //             e.target.setCustomValidity("Examples:8+2 or 5.6/4.7 or 0.1-1 or 3*5.2");
+    //         }
+    //     }
+    //     else {
+    //         e.target.setCustomValidity('');   
+    //     }    
+    // }) .trigger("focusout");
     
 //eventhandlers
     $('#calcForm').on('submit',onEqualBtn);
     $('.fourbyfour').on('click',on4by4Click);
     $('#clearBtn').on('click',onClearBtn);
+    $('#mathInput').on('focusout',updateMathString)
+
     //runthisOnload();
 }
-function runthisOnload(){
-    var elements = document.getElementsByTagName('#mathInput');
-    
-        elements.oninvalid = function(e) {
-            e.target.setCustomValidity("");
-            if (!e.target.validity.valid) {
-                e.target.setCustomValidity("sdfasdfasdfasd");
-            }
-        };
-        elements.oninput = function(e) {
-            e.target.setCustomValidity("");
-        };
-    
+function updateMathString(){
+    //console.log('this ran');
+    mathInputString = $('#mathInput').val();
 }
+// function runthisOnload(){
+//     let element = $('#mathInput');
+//         element.oninvalid = function(e) {
+//             e.target.setCustomValidity("");
+//             if (!e.target.validity.valid) {
+//                 e.target.setCustomValidity("Examples:8+2 or 5.6/4.7 or 0.1-1 or 3*5.2");
+//             }
+//         };
+//         element.oninput = function(e) {
+//             e.target.setCustomValidity("");
+//         };
+    
+// }
 function on4by4Click(evt){
     evt.preventDefault();
     //console.log('on4by4Click');
@@ -77,6 +80,7 @@ function onEqualBtn(evt){
     console.log('in onEqualBtn what is testStrng',testThisString);
     if(testOfString(testThisString)===false){
         //$('#errorLabel').text('Please input a number then an operator then another number. Do not input numbers starting with . or use e as exponent')
+        alert("Examples:\n8+2\n5.6/4.7\n0.1-1\n3*5.2");
         return;
     }
 
@@ -117,7 +121,7 @@ function onEqualBtn(evt){
     
 }
 function render(){
-    $('#mathInput').val($('#mathInput').val()+mathInputString);
+    $('#mathInput').val(mathInputString);
 }
 function renderResult(){
     $('#resultH2').text(clientResultsAndEqns[clientResultsAndEqns.length-1].result);

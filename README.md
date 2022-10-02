@@ -70,7 +70,7 @@ javascript, css, html, jquery, git and github.com
 
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. (Edan Schwartz, Liz Kerber, Adam Lee for help on the regex part.
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. (Edan Schwartz, Liz Kerber, Adam Lee for help on the regex part and https://github.com/ziishaned/learn-regex to help understand regex.
 
 ## Support
 If you have suggestions or issues, please email me at [tormod.slettebo@gmail.com]
