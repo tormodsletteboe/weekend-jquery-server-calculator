@@ -11,7 +11,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 //main state 
 let stateOfMathEqs=[];
 
-//app.post
+//app.post '/mathEqns'
 //client has sent an equation, calculate the result and push it to the state
 app.post('/mathEqns',(req,res)=>{
     let myObj ={};
@@ -24,18 +24,25 @@ app.post('/mathEqns',(req,res)=>{
     res.sendStatus('201');
 });
 
-//app.get
+//app.get /mathEqns/Result
 //send the client the state
 app.get('/mathEqns/Result',(req,res)=>{
    
     res.send(stateOfMathEqs);
 });
 
-
 //app.listen
 //start server and listen on port 3000
 app.listen(3000,()=>{
     console.log('server is up on port',3000);
+});
+
+//app.delete
+//handles delete request from client, set state to empty arrray, then return that empty array
+app.delete('/mathEqns/Delete',(req,res)=>{
+    stateOfMathEqs=[];
+    //return current state
+    res.send(stateOfMathEqs);
 });
  
 //CalculateResult
