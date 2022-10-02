@@ -1,0 +1,29 @@
+.fourbyfour,#equalBtn,#clearBtn{
+    cursor: pointer;
+    text-align: center;
+    background-color: #eee;
+    color:black
+}
+button{
+    size: 50px;
+}
+#clearBtn{
+    /* height:100px ; */
+    width:57px ;
+}
+#mathInput{
+    margin: 0px 0px 20px 0px;
+}
+/* an attempt at doing some visual ques on validation, might emplement later */
+/* #mathInput:valid{
+    content: "✓";
+    color: green;
+} */
+
+div{
+   
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+}

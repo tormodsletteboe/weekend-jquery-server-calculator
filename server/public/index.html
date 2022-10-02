@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery.js"></script>
+    <script src ="./client.js"></script>
+    <link rel="stylesheet" href="./styles.css"/>
+
+    <title>Server Calculator</title>
+</head>
+<body>
+    <h1>Weekend Challenge #2</h1>
+
+    <h2>Server Side Calculator</h2>
+    <form id="calcForm">
+        <input id="mathInput" type="text" required />
+        <!-- pattern=/^(\b0\.0*)*?[1-9]\d*(\.\d+)?[\+\*\/\-](\b0\.0*)*?[1-9]\d*(\.\d+)?$// was thinking of using this pattern in mathInput-->
+        <button id="clearBtn">C</button>
+        <div>
+            <button class="fourbyfour" id="sevenBtn">7</button>
+            <button class="fourbyfour" id="eightBtn">8</button>
+            <button class="fourbyfour" id="nineBtn">9</button>
+            <button class="fourbyfour" id="plussBtn">+</button>
+            <button class="fourbyfour" id="fourBtn">4</button>
+            <button class="fourbyfour" id="fiveBtn">5</button>
+            <button class="fourbyfour" id="sixBtn">6</button>
+            <button class="fourbyfour" id="minusBtn">-</button>
+            <button class="fourbyfour" id="oneBtn">1</button>
+            <button class="fourbyfour" id="twoBtn">2</button>
+            <button class="fourbyfour" id="threeBtn">3</button>
+            <button class="fourbyfour" id="multiplyBtn">*</button>
+            <button class="fourbyfour" id="zeroBtn">0</button>
+            <button class="fourbyfour" id="periodBtn">.</button>
+            <button type="submit"      id="equalBtn">=</button>
+            <button class="fourbyfour" id="divideBtn">/</button>
+        </div>
+    </form>
+    <h2 id="resultH2"></h2>
+    <button id="clearHistoryBtn" for="eqnsUL">Clear History</button>
+    <ul id="eqnsUL">
+
+    </ul>
+</body>
+
+</html>
