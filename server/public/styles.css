@@ -14,19 +14,16 @@ button{
 #mathInput{
     margin: 0px 0px 20px 0px;
 }
+/* an attempt at doing some visual ques on validation, might emplement later */
 /* #mathInput:valid{
     content: "✓";
     color: green;
 } */
+
 div{
    
     display: grid;
     grid-template-columns: 50px 50px 50px 50px;
     grid-column-gap: 2px;
     grid-row-gap: 2px;
-    
-    /* margin-right: 590px;
-    size: 250px; */
-    /* justify-items: stretch;
-    align-items: initial; */
 }
