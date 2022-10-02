@@ -9,45 +9,23 @@ let clientResultsAndEqns=[];
 
 function onReady(){
     
-   //https://stackoverflow.com/questions/5272433/html5-form-required-attribute-set-custom-validation-message
-    // $("input").focusout(function(e) { 
-    //     if(regexp.test($(this).val())==false) { 
-    //         //$(this).css('border', 'solid 2px red'); 
-    //         e.target.setCustomValidity('');
-    //         if(!e.target.validity.valid){
-    //             e.target.setCustomValidity("Examples:8+2 or 5.6/4.7 or 0.1-1 or 3*5.2");
-    //         }
-    //     }
-    //     else {
-    //         e.target.setCustomValidity('');   
-    //     }    
-    // }) .trigger("focusout");
-    
+   
 //eventhandlers
     $('#calcForm').on('submit',onEqualBtn);
     $('.fourbyfour').on('click',on4by4Click);
     $('#clearBtn').on('click',onClearBtn);
     $('#mathInput').on('focusout',updateMathString)
-
+    //$('#clearHistoryBtn').on('click',onClearHistory);
     //runthisOnload();
 }
-function updateMathString(){
-    //console.log('this ran');
-    mathInputString = $('#mathInput').val();
-}
-// function runthisOnload(){
-//     let element = $('#mathInput');
-//         element.oninvalid = function(e) {
-//             e.target.setCustomValidity("");
-//             if (!e.target.validity.valid) {
-//                 e.target.setCustomValidity("Examples:8+2 or 5.6/4.7 or 0.1-1 or 3*5.2");
-//             }
-//         };
-//         element.oninput = function(e) {
-//             e.target.setCustomValidity("");
-//         };
-    
+// function updateMathString(){
+//     //console.log('this ran');
+//     mathInputString = $('#mathInput').val();
 // }
+
+function onClearHistory(){
+    
+}
 function on4by4Click(evt){
     evt.preventDefault();
     //console.log('on4by4Click');
