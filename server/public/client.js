@@ -18,7 +18,15 @@ function onReady(){
     $('#clearBtn').on('click',onClearBtn);
     $('#mathInput').on('focusout',updateMathString)
     $('#clearHistoryBtn').on('click',onClearHistory);
+    $('#eqnsUL').on('click','.ulListItem',onItemClick);
     
+}
+
+//onItemClick
+//shows result of the item clicked on. click on for ex 2+2 in list, it will show result =4, as if calculation took place 
+function onItemClick(){
+    let resultagain = $(this).data('result');
+    $('#resultH2').text(resultagain);
 }
 //updateMathString
 //used to update mathInputString when user types with keyboard directly into the input element
@@ -54,6 +62,7 @@ function on4by4Click(evt){
     //update the DOM since mathInputString has changed
     renderMathInput();
 }
+
 //testOfString
 //test the string before its sent to server. its tested against the global regex
 function testOfString(stringToTest){
@@ -145,7 +154,7 @@ function renderResult(){
     //render the history
     for(let reslts of clientResultsAndEqns){
         $('#eqnsUL').append(`
-        <li>${reslts.matheqnstring}</li>
+        <li class="ulListItem" data-result="${reslts.result}">${reslts.matheqnstring}</li>
         `)
     }
 
