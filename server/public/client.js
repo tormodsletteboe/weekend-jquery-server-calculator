@@ -27,6 +27,7 @@ function onReady(){
 function onItemClick(){
     let resultagain = $(this).data('result');
     $('#resultH2').text(resultagain);
+    $('#mathInput').val($(this).text());
 }
 //updateMathString
 //used to update mathInputString when user types with keyboard directly into the input element
@@ -43,7 +44,6 @@ function onClearHistory(){
         method: 'DELETE'
     })
     .then((response)=>{
-        //console.log('in ajax delete',response);
         //update local array
         clientResultsAndEqns=response;
         renderResult();
@@ -94,7 +94,7 @@ function onEqualBtn(evt){
     //test input before anything else is allowed to happen
     let testThisString = mathInputString;
     if(testOfString(testThisString)===false){
-        alert("Examples:\n8+2\n5.6/4.7\n0.1-1\n3*5.2");
+        alert("Wrong input!!!\nExamples of good input:\n8+2\n5.6/4.7\n0.1-1\n3*5.2");
         return;
     }
 
@@ -128,11 +128,16 @@ function onEqualBtn(evt){
     })
     .then((response)=>{
         clientResultsAndEqns = response;
+        //show result and append to list
         renderResult();
+        //reset input such that user dont have to click [C] to enter a new equation
+        mathInputString='';
+        renderMathInput();
     })
     .catch((err)=>{
         console.log('/mathEqns/Result GET err',err);
     });
+    
     
 }
 //renderMathInput
