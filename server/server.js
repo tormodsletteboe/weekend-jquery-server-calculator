@@ -11,7 +11,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 //main state 
 let stateOfMathEqs=[];
 
-//app.post
+//app.post '/mathEqns'
 //client has sent an equation, calculate the result and push it to the state
 app.post('/mathEqns',(req,res)=>{
     let myObj ={};
@@ -24,19 +24,26 @@ app.post('/mathEqns',(req,res)=>{
     res.sendStatus('201');
 });
 
-//app.get
+//app.get /mathEqns/Result
 //send the client the state
 app.get('/mathEqns/Result',(req,res)=>{
    
     res.send(stateOfMathEqs);
 });
 
-
 //app.listen
 //start server and listen on port 3000
 app.listen(3000,()=>{
     console.log('server is up on port',3000);
 });
+
+//app.delete
+//
+app.delete('/mathEqns/Delete',(req,res=>{
+    console.log('in delete mathEqns/Delete');
+    stateOfMathEqs=[];
+    res.send('Deleted History');
+}));
  
 //CalculateResult
 //split the equation string into 2 number based on which operator was used. Do calculation based on which operator was used, return result

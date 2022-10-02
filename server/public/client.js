@@ -17,7 +17,7 @@ function onReady(){
     $('.fourbyfour').on('click',on4by4Click);
     $('#clearBtn').on('click',onClearBtn);
     $('#mathInput').on('focusout',updateMathString)
-    //$('#clearHistoryBtn').on('click',onClearHistory); //TODO for stretch goals
+    $('#clearHistoryBtn').on('click',onClearHistory);
     
 }
 //updateMathString
@@ -26,11 +26,23 @@ function updateMathString(){
     mathInputString = $('#mathInput').val();
 }
 
-//onClearHistory
-//TODO: for stretch goals
-// function onClearHistory(){
-    
-// }
+// onClearHistory
+// TODO: for stretch goals
+function onClearHistory(){
+    $.ajax({
+        url: '/mathEqns/Delete',
+        method: 'DELETE'
+    })
+    .then((response)=>{
+        console.log('in ajax delete',response);
+        //temporary, would rather do a GET or do something with response
+        clientResultsAndEqns=[];
+        renderResult();
+    })
+    .catch((err)=>{
+        console.log('in ajax delete err',err);
+    });
+}
 
 //on4by4Click
 // anytime 1 of the buttons in the 4 by 4 grid is clicked(except the =), append the string that represents the main display
@@ -122,8 +134,10 @@ function renderMathInput(){
 //the server has sent the results back, render the most recent equation to the result element, and render the history to the ul
 function renderResult(){
     //render most recent calculation
-    $('#resultH2').text(clientResultsAndEqns[clientResultsAndEqns.length-1].result);
-
+    if(clientResultsAndEqns.length>0){
+        $('#resultH2').text(clientResultsAndEqns[clientResultsAndEqns.length-1].result);
+    }
+    
     //empty ul first
     $('#eqnsUL').empty();
     
