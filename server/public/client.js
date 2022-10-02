@@ -11,16 +11,16 @@ function onReady(){
     //console.log('onReady');
     $("input").focusout(function(e) { 
         if(regexp.test($(this).val())==false) { 
-            $(this).css('border', 'solid 2px red'); 
+            //$(this).css('border', 'solid 2px red'); 
             e.target.setCustomValidity('');
             if(!e.target.validity.valid){
-                e.target.setCustomValidity("Input [number][operator][number]");
+                e.target.setCustomValidity("Examples:8+2 or 5.6/4.7 or 0.1-1 or 3*5.2");
             }
         }
         else {
               
             // If it is not blank.
-            $(this).css('border', 'solid 2px green'); 
+            //$(this).css('border', 'solid 2px green'); 
             e.target.setCustomValidity('');   
         }    
     }) .trigger("focusout");
@@ -29,7 +29,7 @@ function onReady(){
     $('#calcForm').on('submit',onEqualBtn);
     $('.fourbyfour').on('click',on4by4Click);
     $('#clearBtn').on('click',onClearBtn);
-    runthisOnload();
+    //runthisOnload();
 }
 function runthisOnload(){
     var elements = document.getElementsByTagName('#mathInput');
@@ -117,7 +117,7 @@ function onEqualBtn(evt){
     
 }
 function render(){
-    $('#mathInput').val(mathInputString);
+    $('#mathInput').val($('#mathInput').val()+mathInputString);
 }
 function renderResult(){
     $('#resultH2').text(clientResultsAndEqns[clientResultsAndEqns.length-1].result);
