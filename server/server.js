@@ -19,6 +19,8 @@ app.post('/mathEqns',(req,res)=>{
 
     myObj.result = CalculateResult(myObj.matheqnstring);
     stateOfMathEqs.push(myObj);
+    
+    
 
     //inform client that server has posted what was sent
     res.sendStatus('201');

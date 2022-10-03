@@ -20,6 +20,7 @@ function onReady(){
     $('#clearHistoryBtn').on('click',onClearHistory);
     $('#eqnsUL').on('click','.ulListItem',onItemClick);
     
+    
 }
 
 //onItemClick
@@ -28,6 +29,7 @@ function onItemClick(){
     let resultagain = $(this).data('result');
     $('#resultH2').text(resultagain);
     $('#mathInput').val($(this).text());
+    
 }
 //updateMathString
 //used to update mathInputString when user types with keyboard directly into the input element
@@ -61,6 +63,7 @@ function on4by4Click(evt){
     mathInputString+=$(this).text();
     //update the DOM since mathInputString has changed
     renderMathInput();
+    
 }
 
 //testOfString
@@ -69,6 +72,7 @@ function testOfString(stringToTest){
     
     //console.log(stringToTest);
     let doesItfollowThisPattern = regexp.test(stringToTest);
+    
     //console.log(doesItfollowThisPattern);
     if(doesItfollowThisPattern){
         return true;
