@@ -98,7 +98,8 @@ function onEqualBtn(evt){
     //test input before anything else is allowed to happen
     let testThisString = mathInputString;
     if(testOfString(testThisString)===false){
-        alert("Wrong input!!!\nExamples of good input:\n8+2\n5.6/4.7\n0.1-1\n3*5.2");
+        alert('Philip your awesome!!!');
+        //"Wrong input!!!\nExamples of good input:\n8+2\n5.6/4.7\n0.1-1\n3*5.2"
         return;
     }
 
