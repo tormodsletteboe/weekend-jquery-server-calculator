@@ -1,7 +1,7 @@
 
 //use this regular expression to test input from the calculator before its sent to server
-//this regex is not complete, as it will not pass numbers such as .0000001 or 0.0
-let regexp = /^(\b0\.0*)*?[1-9]\d*(\.\d+)?[\+\*\/\-](\b0\.0*)*?[1-9]\d*(\.\d+)?$/;
+//does not allow signed numbers
+let regexp = /^(\d+)?\.?(\d+)?[\+\-\/\*]{1}(\d+)?\.?(\d+)?$/;
 
 $(document).ready(onReady);
 
