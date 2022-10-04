@@ -19,7 +19,7 @@ function onReady(){
     $('#mathInput').on('focusout',updateMathString)
     $('#clearHistoryBtn').on('click',onClearHistory);
     $('#eqnsUL').on('click','.ulListItem',onItemClick);
-    
+    getResults();
     
 }
 
@@ -126,6 +126,13 @@ function onEqualBtn(evt){
 
 
     //get the result from the server
+    getResults();
+    
+    
+}
+//getResults
+//request history and results from the server
+function getResults(){
     $.ajax({
         url:'/mathEqns/Result',
         method: 'GET'
@@ -141,9 +148,8 @@ function onEqualBtn(evt){
     .catch((err)=>{
         console.log('/mathEqns/Result GET err',err);
     });
-    
-    
 }
+
 //renderMathInput
 //mathInputString has changed, render the changes to the dom
 function renderMathInput(){
@@ -153,6 +159,7 @@ function renderMathInput(){
 //the server has sent the results back, render the most recent equation to the result element, and render the history to the ul
 function renderResult(){
     //render most recent calculation
+    $('#resultH2').text('');
     if(clientResultsAndEqns.length>0){
         $('#resultH2').text(clientResultsAndEqns[clientResultsAndEqns.length-1].result);
     }
