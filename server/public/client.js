@@ -10,6 +10,7 @@ let mathInputString='';
 //fill this with info form the server
 let clientResultsAndEqns=[];
 
+let onReadyRan=false;
 //onReady, registser all event handlers
 function onReady(){
 //eventhandlers
@@ -20,6 +21,8 @@ function onReady(){
     $('#clearHistoryBtn').on('click',onClearHistory);
     $('#eqnsUL').on('click','.ulListItem',onItemClick);
     getResults();
+    onReadyRan=true;
+
     
 }
 
@@ -158,11 +161,17 @@ function renderMathInput(){
 //renderResult
 //the server has sent the results back, render the most recent equation to the result element, and render the history to the ul
 function renderResult(){
+   
+    
     //render most recent calculation
-    $('#resultH2').text('');
     if(clientResultsAndEqns.length>0){
         $('#resultH2').text(clientResultsAndEqns[clientResultsAndEqns.length-1].result);
     }
+    //gimmic to clear the h2 only once, ie if it was called from onReady
+    if(onReadyRan){
+        $('#resultH2').text('');
+    }
+    onReadyRan=false;
     
     //empty ul first
     $('#eqnsUL').empty();
