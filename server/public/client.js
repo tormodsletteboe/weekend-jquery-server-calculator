@@ -51,6 +51,7 @@ function onClearHistory(){
     .then((response)=>{
         //update local array
         clientResultsAndEqns=response;
+        onReadyRan=true;
         renderResult();
     })
     .catch((err)=>{
@@ -172,7 +173,7 @@ function renderResult(){
         $('#resultH2').text('');
     }
     onReadyRan=false;
-    
+
     //empty ul first
     $('#eqnsUL').empty();
     
